@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraDirector : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class CameraDirector : MonoBehaviour
     public float regularZoomLevel = 3f;
     public float dialogueZoomLevel = 1f;
     public bool inDialogue = false;
+    public Gradient skyColor;
+    public Image darknessOverlay;
+    public float timeOfDay = 0f;
+    public float timeEndOfDay = 240f;
 
     public Vector3 target;
     float zoomLevel;
@@ -23,13 +28,18 @@ public class CameraDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cam.backgroundColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
+        Color darknessOverlayColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
+        darknessOverlayColor.a = timeOfDay/timeEndOfDay-0.5f;
+        darknessOverlay.color = darknessOverlayColor;
         if(inDialogue){
             Vector3 dir = (target - transform.position);
             dir.z = 0;
             transform.position += dir*Time.deltaTime;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,dialogueZoomLevel,0.1f);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,dialogueZoomLevel,0.01f);
         }else{
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,regularZoomLevel,0.1f);
+            timeOfDay += Time.deltaTime;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,regularZoomLevel,0.01f);
         }
         if(Mathf.Abs(transform.position.x - player.transform.position.x) > maxDistance){
             Vector3 dir = (player.transform.position - transform.position);

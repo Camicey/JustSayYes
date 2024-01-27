@@ -30,19 +30,21 @@ public class DialogueSystem : MonoBehaviour
     }
 
     public void StartDialogue(NPC talker){
-        currentNPC = talker;
-        player.GetComponent<Player>().canMove = false;
-        player.GetComponent<Player>().inDialogue = true;
-        cam.inDialogue = true;
-        cam.target = talker.gameObject.transform.position;
-        currentNPC.inDialogue = true;
-        chunk = 0;
-        dialogueUI.SetActive(true);
-        ShowDialogue();
+        if(!inDialogue){
+            currentNPC = talker;
+            player.GetComponent<Player>().canMove = false;
+            player.GetComponent<Player>().inDialogue = true;
+            cam.inDialogue = true;
+            cam.target = talker.gameObject.transform.position;
+            currentNPC.inDialogue = true;
+            chunk = 0;
+            dialogueUI.SetActive(true);
+            ShowDialogue();
+        }
     }
 
     void ShowDialogue(){
-        if(!inDialogue){
+        cam.timeOfDay += 5f;
         ApplyConsequence(currentNPC.dialogue[chunk].consequence);
         choiceButtonsText[0].gameObject.SetActive(false);
         choiceButtonsText[1].gameObject.SetActive(false);
@@ -54,7 +56,6 @@ public class DialogueSystem : MonoBehaviour
         for(int i = 0; i < responseAmount; i++){
             choiceButtonsText[i].gameObject.SetActive(true);
             choiceButtonsText[i].text = currentNPC.dialogue[chunk].responses[i].text;
-        }
         }
 
     }
@@ -79,8 +80,11 @@ public class DialogueSystem : MonoBehaviour
             case -1:
             EndDialogue();
             break;
-            case 1:
-                print("money-- :(");
+            case 1: //Minor inconvenience
+                player.GetComponent<Player>().morale -= 10;
+                break;
+            case 2: //Major inconvenience
+                player.GetComponent<Player>().morale -= 40;
                 break;
         }
 

@@ -133,6 +133,12 @@ MonoBehaviour:
     m_Bits: 128
   canMove: 1
   inDialogue: 0
+  morale: 100
+  money: 50
+  spriteHappy: {fileID: 2800000, guid: f21fff1f5d6c52444a545e6f42cd6cd1, type: 3}
+  spriteNeutral: {fileID: 2800000, guid: cd7eaa7626f7da94389c214b3fcfad5e, type: 3}
+  spriteSad: {fileID: 2800000, guid: 798febdf5c1509f4b8b8fa98b8e36e5e, type: 3}
+  srHead: {fileID: 9220823769728143025}
 --- !u!95 &5630639330293210724
 Animator:
   serializedVersion: 5

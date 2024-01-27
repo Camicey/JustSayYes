@@ -10,6 +10,18 @@ public class Player : MonoBehaviour
     public bool canMove = true;
     public bool inDialogue = false;
 
+    public int morale = 100;
+    public int money = 50;
+
+    public bool hasPhone = false;
+    public bool hasRunShoes = false;
+    public bool hasHeadPhones = false;
+
+    public Sprite spriteHappy;
+    public Sprite spriteNeutral;
+    public Sprite spriteSad;
+    public SpriteRenderer srHead;
+
     CharacterController cc;
     Vector2 target;
     Animator anim;
@@ -25,6 +37,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(morale > 70){
+            srHead.sprite = spriteHappy;
+        }else if(morale > 30){
+            srHead.sprite = spriteNeutral;
+        }else{
+            srHead.sprite = spriteSad;
+        }
         if (canMove)
         {
             MouseInput();

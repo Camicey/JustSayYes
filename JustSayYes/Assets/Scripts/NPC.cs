@@ -5,7 +5,8 @@ using UnityEngine;
 public enum behaviorType // your custom enumeration
 {
     Follower, 
-    Indifferent
+    Indifferent,
+    RollerKid
 };
 
 
@@ -32,11 +33,13 @@ public class NPC : MonoBehaviour
     public float walkSpeed = 2.5f;
     public DialogueChunk[] dialogue;
     public bool inDialogue = false;
+    public float lastTimeTalked = 0f;
 
     DialogueSystem ds;
     CharacterController cc;
     GameObject player;
     Vector2 target;
+    Vector2 startingPoint;
     
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,7 @@ public class NPC : MonoBehaviour
         player = GameObject.Find("Player");
         cc = GetComponent<CharacterController>();
         ds = GameObject.Find("Dialogue").GetComponent<DialogueSystem>();
+        startingPoint = new Vector2(player.transform.position.x,player.transform.position.y);
     }
 
     // Update is called once per frame
@@ -51,11 +55,22 @@ public class NPC : MonoBehaviour
     {
         if(behavior == behaviorType.Indifferent)target = new Vector2(transform.position.x,transform.position.y);
         if(behavior == behaviorType.Follower)FollowerBehavior();
-        if(!inDialogue)Movement();
+        if(behavior == behaviorType.RollerKid)RollerKidBehavior();
+        if(!inDialogue){
+            lastTimeTalked += Time.deltaTime;
+            Movement();
+        }else{
+            lastTimeTalked = 0;
+        }
     }
 
     void Movement(){
         Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));
+         if(dir.x > 0){
+            transform.localScale = new Vector3(-1,1,1);
+        }else{
+            transform.localScale = new Vector3(1,1,1);
+        }
         dir.Normalize();
         if(dir.magnitude < 0.1){
             dir = Vector2.zero;
@@ -76,6 +91,17 @@ public class NPC : MonoBehaviour
         {
             target = new Vector2(transform.position.x,transform.position.y);
         }
+    }
+
+    void RollerKidBehavior(){
+        if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && lastTimeTalked > 10f){
+                ds.StartDialogue(gameObject.GetComponent<NPC>());
+            }
+        Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));
+        if(dir.magnitude < 0.1){
+            target = startingPoint + Vector2.right * Random.Range(-10f,10f) + Vector2.up* Random.Range(-1f,1f);
+        }
+
     }
 
     public void DoneTalking(){
