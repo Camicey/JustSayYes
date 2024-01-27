@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float walkSpeed;
     public LayerMask walkableLayer;
     public bool canMove = true;
+    public bool inDialogue = false;
 
     CharacterController cc;
     Vector2 target;
@@ -26,13 +27,10 @@ public class Player : MonoBehaviour
             MouseInput();
             Movement();
         }
-
-        
-       
     }
 
     void MouseInput(){
-        if(Input.GetButtonDown("Fire1")){
+        if(Input.GetButton("Fire1")){
             if(Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f,walkableLayer) != null){
                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
@@ -45,12 +43,11 @@ public class Player : MonoBehaviour
 
     void Movement(){
         Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));
-        dir.Normalize();
         if(dir.magnitude < 0.1){
             dir = Vector2.zero;
             target = new Vector2(transform.position.x,transform.position.y);
         }
-
+        dir.Normalize();
         cc.Move(dir*walkSpeed*Time.deltaTime);
     }
 }

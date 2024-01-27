@@ -27,11 +27,13 @@ public class DialogueChunk
 
 public class NPC : MonoBehaviour
 {
-    
+    public string name;
     public behaviorType behavior = behaviorType.Indifferent;
     public float walkSpeed = 2.5f;
     public DialogueChunk[] dialogue;
+    public bool inDialogue = false;
 
+    DialogueSystem ds;
     CharacterController cc;
     GameObject player;
     Vector2 target;
@@ -41,13 +43,15 @@ public class NPC : MonoBehaviour
     {
         player = GameObject.Find("Player");
         cc = GetComponent<CharacterController>();
+        ds = GameObject.Find("Dialogue").GetComponent<DialogueSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(behavior == behaviorType.Indifferent)target = new Vector2(transform.position.x,transform.position.y);
         if(behavior == behaviorType.Follower)FollowerBehavior();
-        Movement();
+        if(!inDialogue)Movement();
     }
 
     void Movement(){
@@ -63,6 +67,9 @@ public class NPC : MonoBehaviour
 
     void FollowerBehavior(){
         if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 3){
+            if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1){
+                ds.StartDialogue(gameObject.GetComponent<NPC>());
+            }
             target = new Vector2(player.transform.position.x,player.transform.position.y);
         }
         else
@@ -71,16 +78,8 @@ public class NPC : MonoBehaviour
         }
     }
 
-    void ApplyConsequence(int type){
-        switch(type){
-            case 1:
-                print("money-- :(");
-                break;
-        }
-
+    public void DoneTalking(){
+        if(behavior == behaviorType.Follower)behavior = behaviorType.Indifferent;
     }
 
-    public void PlayerAnswer(){
-        return;
-    }
 }

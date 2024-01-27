@@ -11,6 +11,7 @@ public class CameraDirector : MonoBehaviour
     public float dialogueZoomLevel = 1f;
     public bool inDialogue = false;
 
+    public Vector3 target;
     float zoomLevel;
     // Start is called before the first frame update
     void Start()
@@ -23,13 +24,16 @@ public class CameraDirector : MonoBehaviour
     void Update()
     {
         if(inDialogue){
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize ,dialogueZoomLevel,0.1f);
+            Vector3 dir = (target - transform.position);
+            dir.z = 0;
+            transform.position += dir*Time.deltaTime;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,dialogueZoomLevel,0.1f);
         }else{
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize ,regularZoomLevel,0.1f);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,regularZoomLevel,0.1f);
         }
         if(Mathf.Abs(transform.position.x - player.transform.position.x) > maxDistance){
             Vector3 dir = (player.transform.position - transform.position);
-            dir.y = 0;
+            dir.y = -transform.position.y;
             dir.z = 0;
             transform.position += dir*Time.deltaTime;
         }
