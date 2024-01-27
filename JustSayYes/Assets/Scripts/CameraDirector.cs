@@ -14,7 +14,8 @@ public class CameraDirector : MonoBehaviour
     public Gradient skyColor;
     public Image darknessOverlay;
     public float timeOfDay = 0f;
-    public float timeEndOfDay = 240f;
+    public float timeEndOfDay = 480f;
+    public float limitDistance = 15f;
 
     public Vector3 target;
     float zoomLevel;
@@ -29,6 +30,7 @@ public class CameraDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x,-limitDistance,limitDistance),transform.position.y,transform.position.z);
         cam.backgroundColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
         Color darknessOverlayColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
         darknessOverlayColor.a = timeOfDay/timeEndOfDay-0.5f;
@@ -37,7 +39,7 @@ public class CameraDirector : MonoBehaviour
             timeBeforeDepression -= Time.deltaTime;
             if(timeBeforeDepression <= 0.0f)
             {
-            timeBeforeDepression = 3.0f;
+            timeBeforeDepression = 0.6f;
             player.GetComponent<Player>().morale -= 1;
             }
 
@@ -56,6 +58,7 @@ public class CameraDirector : MonoBehaviour
             dir.y = -transform.position.y;
             dir.z = 0;
             transform.position += dir*Time.deltaTime;
+
         }
     }
 }

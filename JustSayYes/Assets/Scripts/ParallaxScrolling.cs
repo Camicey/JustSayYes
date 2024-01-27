@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParallaxScrolling : MonoBehaviour
 {
     public float scrollSpeed = 0.5f;
-    public Transform cameraPos;
+    Transform cameraPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,6 @@ public class ParallaxScrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(cameraPos.position.x*scrollSpeed,cameraPos.position.y*scrollSpeed,0f);
+        transform.position = new Vector3(cameraPos.position.x*scrollSpeed,cameraPos.position.y*scrollSpeed,transform.position.z);
     }
 }

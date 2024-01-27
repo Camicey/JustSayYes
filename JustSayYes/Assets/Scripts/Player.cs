@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public bool canMove = true;
     public bool inDialogue = false;
     public bool canBeTalkedTo = true;
+    public bool isRunning = false;
 
     public int morale = 100;
     public int money = 50;
@@ -20,13 +22,17 @@ public class Player : MonoBehaviour
    
 
     public bool hasPhone = false;
-    public bool hasRunShoes = false;
-    public bool hasHeadPhones = false;
+    public bool hasRunShoes = true;
+    public bool hasHeadphones = false;
     public bool hasFromage = false;
 
+    public Button headphonesButton;
+    public Button phoneButton;
+    public Button runButton;
     public Sprite spriteHappy;
     public Sprite spriteNeutral;
     public Sprite spriteSad;
+    public Slider moralBar;
     public SpriteRenderer srHead;
 
     CharacterController cc;
@@ -44,7 +50,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moralBar.value = morale;
         runDuration += Time.deltaTime;
+        runButton.interactable = (runDuration > 20f);
+        phoneButton.gameObject.SetActive(hasPhone);
+        headphonesButton.gameObject.SetActive(hasHeadphones);
+        runButton.gameObject.SetActive(hasRunShoes);
         if(morale > 70){
             srHead.sprite = spriteHappy;
         }else if(morale > 30){
@@ -70,7 +81,8 @@ public class Player : MonoBehaviour
             }
             else
             {
-                target = new Vector2(transform.position.x, transform.position.y);
+                if(Input.mousePosition.y/Screen.height < 0.9f)target = new Vector2(transform.position.x, transform.position.y);
+                //Debug.Log(Input.mousePosition.y/Screen.height);
             }
         }
     }
@@ -90,15 +102,24 @@ public class Player : MonoBehaviour
             anim.SetBool("isWalking",true);
         }
         dir.Normalize();
-        if(runDuration < 3.0f){
+        if(runDuration < 2.0f){
             canBeTalkedTo = true;
+            dir.y = 0;
+            if(!isRunning)target = target+dir*10f;
             cc.Move(dir*runSpeed*Time.deltaTime);
+            isRunning = true;
         }else if(runDuration < 5.0f){
             canBeTalkedTo = false;
             cc.Move(dir*recoverySpeed*Time.deltaTime);
+            isRunning = false;
         }else {
             canBeTalkedTo = false;
             cc.Move(dir*walkSpeed*Time.deltaTime);
+            isRunning = false;
         }
+    }
+
+    public void StartRunning(){
+        runDuration = 0f;
     }
 }

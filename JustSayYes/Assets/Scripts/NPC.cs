@@ -33,7 +33,7 @@ public class NPC : MonoBehaviour
     public float walkSpeed = 2.5f;
     public DialogueChunk[] dialogue;
     public bool inDialogue = false;
-    public float lastTimeTalked = 0f;
+    public float lastTimeTalked = 10f;
 
     DialogueSystem ds;
     CharacterController cc;
