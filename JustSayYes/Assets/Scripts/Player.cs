@@ -6,16 +6,23 @@ public class Player : MonoBehaviour
 {
 
     public float walkSpeed;
+    public float recoverySpeed = 1f;
+    public float runSpeed = 5f;
+    public float runDuration = 5f;
     public LayerMask walkableLayer;
     public bool canMove = true;
     public bool inDialogue = false;
+    public bool canBeTalkedTo = true;
 
     public int morale = 100;
     public int money = 50;
 
+   
+
     public bool hasPhone = false;
     public bool hasRunShoes = false;
     public bool hasHeadPhones = false;
+    public bool hasFromage = false;
 
     public Sprite spriteHappy;
     public Sprite spriteNeutral;
@@ -37,6 +44,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        runDuration += Time.deltaTime;
         if(morale > 70){
             srHead.sprite = spriteHappy;
         }else if(morale > 30){
@@ -82,6 +90,15 @@ public class Player : MonoBehaviour
             anim.SetBool("isWalking",true);
         }
         dir.Normalize();
-        cc.Move(dir*walkSpeed*Time.deltaTime);
+        if(runDuration < 3.0f){
+            canBeTalkedTo = true;
+            cc.Move(dir*runSpeed*Time.deltaTime);
+        }else if(runDuration < 5.0f){
+            canBeTalkedTo = false;
+            cc.Move(dir*recoverySpeed*Time.deltaTime);
+        }else {
+            canBeTalkedTo = false;
+            cc.Move(dir*walkSpeed*Time.deltaTime);
+        }
     }
 }

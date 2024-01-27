@@ -18,6 +18,7 @@ public class CameraDirector : MonoBehaviour
 
     public Vector3 target;
     float zoomLevel;
+    float timeBeforeDepression = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,15 @@ public class CameraDirector : MonoBehaviour
         Color darknessOverlayColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
         darknessOverlayColor.a = timeOfDay/timeEndOfDay-0.5f;
         darknessOverlay.color = darknessOverlayColor;
+        if(timeOfDay-timeEndOfDay > 0.0f){
+            timeBeforeDepression -= Time.deltaTime;
+            if(timeBeforeDepression <= 0.0f)
+            {
+            timeBeforeDepression = 3.0f;
+            player.GetComponent<Player>().morale -= 1;
+            }
+
+        }
         if(inDialogue){
             Vector3 dir = (target - transform.position);
             dir.z = 0;

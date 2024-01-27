@@ -44,6 +44,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = new Vector2(transform.position.x,transform.position.y);
         player = GameObject.Find("Player");
         cc = GetComponent<CharacterController>();
         ds = GameObject.Find("Dialogue").GetComponent<DialogueSystem>();
@@ -82,7 +83,7 @@ public class NPC : MonoBehaviour
 
     void FollowerBehavior(){
         if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 3){
-            if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue){
+            if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && !player.GetComponent<Player>().canBeTalkedTo){
                 ds.StartDialogue(gameObject.GetComponent<NPC>());
             }
             target = new Vector2(player.transform.position.x,player.transform.position.y);
@@ -94,7 +95,7 @@ public class NPC : MonoBehaviour
     }
 
     void RollerKidBehavior(){
-        if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && lastTimeTalked > 10f){
+        if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && lastTimeTalked > 10f && !player.GetComponent<Player>().canBeTalkedTo){
                 ds.StartDialogue(gameObject.GetComponent<NPC>());
             }
         Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));

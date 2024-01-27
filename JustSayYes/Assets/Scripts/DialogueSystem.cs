@@ -50,11 +50,16 @@ public class DialogueSystem : MonoBehaviour
         choiceButtonsText[1].gameObject.SetActive(false);
         choiceButtonsText[2].gameObject.SetActive(false);
         choiceButtonsText[3].gameObject.SetActive(false);
+        choiceButtonsText[0].gameObject.transform.parent.gameObject.SetActive(false);
+        choiceButtonsText[1].gameObject.transform.parent.gameObject.SetActive(false);
+        choiceButtonsText[2].gameObject.transform.parent.gameObject.SetActive(false);
+        choiceButtonsText[3].gameObject.transform.parent.gameObject.SetActive(false);
         text.text = currentNPC.dialogue[chunk].text;
         nameText.text = currentNPC.name;
         int responseAmount = currentNPC.dialogue[chunk].responses.Length;
         for(int i = 0; i < responseAmount; i++){
             choiceButtonsText[i].gameObject.SetActive(true);
+            choiceButtonsText[i].gameObject.transform.parent.gameObject.SetActive(true);
             choiceButtonsText[i].text = currentNPC.dialogue[chunk].responses[i].text;
         }
 
@@ -81,7 +86,7 @@ public class DialogueSystem : MonoBehaviour
             EndDialogue();
             break;
             case 1: //Minor inconvenience
-                player.GetComponent<Player>().morale -= 10;
+                player.GetComponent<Player>().morale -= 5;
                 break;
             case 2: //Major inconvenience
                 player.GetComponent<Player>().morale -= 40;
