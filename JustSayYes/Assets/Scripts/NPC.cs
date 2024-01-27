@@ -67,7 +67,7 @@ public class NPC : MonoBehaviour
 
     void FollowerBehavior(){
         if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 3){
-            if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1){
+            if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue){
                 ds.StartDialogue(gameObject.GetComponent<NPC>());
             }
             target = new Vector2(player.transform.position.x,player.transform.position.y);

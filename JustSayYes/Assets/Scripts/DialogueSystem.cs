@@ -42,6 +42,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
     void ShowDialogue(){
+        if(!inDialogue){
         ApplyConsequence(currentNPC.dialogue[chunk].consequence);
         choiceButtonsText[0].gameObject.SetActive(false);
         choiceButtonsText[1].gameObject.SetActive(false);
@@ -53,6 +54,7 @@ public class DialogueSystem : MonoBehaviour
         for(int i = 0; i < responseAmount; i++){
             choiceButtonsText[i].gameObject.SetActive(true);
             choiceButtonsText[i].text = currentNPC.dialogue[chunk].responses[i].text;
+        }
         }
 
     }
