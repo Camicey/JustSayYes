@@ -8,12 +8,29 @@ public enum behaviorType // your custom enumeration
     Indifferent
 };
 
+
+[System.Serializable]
+public class DialogueResponse
+{
+    public string text;
+    public int next;
+    public int consequence = 0;
+}
+
+[System.Serializable]
+public class DialogueChunk
+{
+    public string text;
+    public DialogueResponse[] responses;
+    public int consequence = 0;
+}
+
 public class NPC : MonoBehaviour
 {
     
-    public int id;
     public behaviorType behavior = behaviorType.Indifferent;
     public float walkSpeed = 2.5f;
+    public DialogueChunk[] dialogue;
 
     CharacterController cc;
     GameObject player;
@@ -52,5 +69,18 @@ public class NPC : MonoBehaviour
         {
             target = new Vector2(transform.position.x,transform.position.y);
         }
+    }
+
+    void ApplyConsequence(int type){
+        switch(type){
+            case 1:
+                print("money-- :(");
+                break;
+        }
+
+    }
+
+    public void PlayerAnswer(){
+        return;
     }
 }
