@@ -23,15 +23,18 @@ public class LevelTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(((player.transform.position.x > transform.position.x && westSided) || (player.transform.position.x < transform.position.x && !westSided)) && !transitionTriggered){
+        if (((player.transform.position.x > transform.position.x && westSided) || (player.transform.position.x < transform.position.x && !westSided)) && !transitionTriggered)
+        {
             Debug.Log("Transit");
             player.EnterTransition();
             transitionDelay = 1.0f;
             transitionTriggered = true;
         }
-        if(transitionTriggered){
+        if (transitionTriggered)
+        {
             transitionDelay -= Time.deltaTime;
-            if(transitionDelay < 0f){
+            if (transitionDelay < 0f)
+            {
                 LevelTransit();
                 transitionDelay = 1.0f;
                 transitionTriggered = false;
@@ -39,9 +42,10 @@ public class LevelTransition : MonoBehaviour
         }
     }
 
-    void LevelTransit(){
+    void LevelTransit()
+    {
         player.cc.enabled = false;
-        player.gameObject.transform.position = new Vector3(nextPlayerPosition.x,nextPlayerPosition.y,player.transform.position.z);
+        player.gameObject.transform.position = new Vector3(nextPlayerPosition.x, nextPlayerPosition.y, player.transform.position.z);
         player.cc.enabled = true;
         player.target = nextPlayerPosition + nextPlayerDir;
         nextScene.SetActive(true);

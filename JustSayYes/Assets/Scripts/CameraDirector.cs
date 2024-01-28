@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CameraDirector : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class CameraDirector : MonoBehaviour
     public Vector3 target;
     float zoomLevel;
     float timeBeforeDepression = 3.0f;
+
+    public GameObject Maison;
+    public
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,34 +35,56 @@ public class CameraDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x,-limitDistance,limitDistance),transform.position.y,transform.position.z);
-        cam.backgroundColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
-        Color darknessOverlayColor = skyColor.Evaluate(timeOfDay/timeEndOfDay);
-        darknessOverlayColor.a = timeOfDay/timeEndOfDay-0.5f;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -limitDistance, limitDistance), transform.position.y, transform.position.z);
+        cam.backgroundColor = skyColor.Evaluate(timeOfDay / timeEndOfDay);
+        Color darknessOverlayColor = skyColor.Evaluate(timeOfDay / timeEndOfDay);
+        darknessOverlayColor.a = timeOfDay / timeEndOfDay - 0.5f;
         darknessOverlay.color = darknessOverlayColor;
-        if(timeOfDay-timeEndOfDay > 0.0f){
+        if (timeOfDay - timeEndOfDay > 0.0f)
+        {
             timeBeforeDepression -= Time.deltaTime;
-            if(timeBeforeDepression <= 0.0f)
+            if (timeBeforeDepression <= 0.0f)
             {
-            timeBeforeDepression = 0.6f;
-            player.GetComponent<Player>().morale -= 1;
+                timeBeforeDepression = 0.6f;
+                player.GetComponent<Player>().morale -= 1;
             }
 
         }
-        if(inDialogue){
+        if (inDialogue)
+        {
             Vector3 dir = (target - transform.position);
             dir.z = 0;
-            transform.position += dir*Time.deltaTime;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,dialogueZoomLevel,0.01f);
-        }else{
-            timeOfDay += Time.deltaTime;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,regularZoomLevel,0.01f);
+            transform.position += dir * Time.deltaTime;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, dialogueZoomLevel, 0.01f);
         }
-        if(Mathf.Abs(transform.position.x - player.transform.position.x) > maxDistance){
+        else
+        {
+            timeOfDay += Time.deltaTime;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, regularZoomLevel, 0.01f);
+        }
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) > maxDistance)
+        {
             Vector3 dir = (player.transform.position - transform.position);
             dir.y = -transform.position.y;
             dir.z = 0;
-            transform.position += dir*Time.deltaTime;
+            transform.position += dir * Time.deltaTime;
+
+        }
+
+        if (timeOfDay >= timeEndOfDay && Maison.activeSelf == true) // Fin Neutre
+        {
+            if (player.GetComponent<Player>().hasObject[2] == false)
+            {
+                SceneManager.LoadScene("FinNeutre");
+            }
+            else if (player.GetComponent<Player>().hasObject[3] == false && player.GetComponent<Player>().hasObject[4] == false && player.GetComponent<Player>().hasObject[5] == false)
+            {
+                SceneManager.LoadScene("FinNeutre");
+            }
+            else
+            {
+                SceneManager.LoadScene("FinHappyWife");
+            }
 
         }
     }

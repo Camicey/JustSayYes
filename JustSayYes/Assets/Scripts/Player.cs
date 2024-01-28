@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public int money = 50;
     public int score = 0;
 
-   
+
 
     public bool hasPhone = false;
     public bool hasRunShoes = true;
@@ -75,8 +75,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(morale <= 0)SceneManager.LoadScene("PsyFin");
-        morale = Mathf.Clamp(morale,0,100);
+        if (morale <= 0) SceneManager.LoadScene("PsyFin");
+        morale = Mathf.Clamp(morale, 0, 100);
         moralBar.value = morale;
         runDuration += Time.deltaTime;
         musicDuration += Time.deltaTime;
@@ -87,31 +87,40 @@ public class Player : MonoBehaviour
         phoneButton.interactable = (headphonesBattery > 0 && musicDuration > 12f);
         runButton.gameObject.SetActive(hasRunShoes);
 
-        if(phoneButton.interactable && Input.GetButtonDown("Phone"))PhoneCall();
-        if(runButton.interactable && Input.GetButtonDown("Run"))StartRunning();
-        if(headphonesButton.interactable && Input.GetButtonDown("Headphones"))PutOnHeadphones();
+        if (phoneButton.interactable && Input.GetButtonDown("Phone")) PhoneCall();
+        if (runButton.interactable && Input.GetButtonDown("Run")) StartRunning();
+        if (headphonesButton.interactable && Input.GetButtonDown("Headphones")) PutOnHeadphones();
 
         batteryPhoneLevel.sprite = batteryLevels[phoneBattery];
         batteryHeadPhonesLevel.sprite = batteryLevels[headphonesBattery];
 
-        for(int i = 0; i < hasObject.Length; i++){
+        for (int i = 0; i < hasObject.Length; i++)
+        {
             objectDisplay[i].gameObject.SetActive(hasObject[i]);
         }
 
-        if(morale > 70){
+        if (morale > 70)
+        {
             srHead.sprite = spriteHappy;
-        }else if(morale > 30){
+        }
+        else if (morale > 30)
+        {
             srHead.sprite = spriteNeutral;
-        }else{
+        }
+        else
+        {
             srHead.sprite = spriteSad;
         }
-        if(musicDuration < 12f){
+        if (musicDuration < 12f)
+        {
             canBeTalkedTo = true;
-            music.volume = Mathf.Lerp(music.volume,0.5f,0.02f);
+            music.volume = Mathf.Lerp(music.volume, 0.5f, 0.02f);
 
-        }else{
+        }
+        else
+        {
             canBeTalkedTo = false;
-            music.volume = Mathf.Lerp(music.volume,0f,0.02f);
+            music.volume = Mathf.Lerp(music.volume, 0f, 0.02f);
         }
 
         if (canMove)
@@ -121,77 +130,95 @@ public class Player : MonoBehaviour
         }
         else
         {
-            anim.SetBool("isWalking",false);
+            anim.SetBool("isWalking", false);
         }
     }
 
-    void MouseInput(){
-        if(Input.GetButton("Fire1")){
-            if(Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f,walkableLayer) != null){
+    void MouseInput()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            if (Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f, walkableLayer) != null)
+            {
                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
             else
             {
-                if(Input.mousePosition.y/Screen.height < 0.9f)target = new Vector2(transform.position.x, transform.position.y);
+                if (Input.mousePosition.y / Screen.height < 0.9f) target = new Vector2(transform.position.x, transform.position.y);
                 //Debug.Log(Input.mousePosition.y/Screen.height);
             }
         }
     }
 
-    void Movement(){
-        Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));
-        if(dir.x > 0){
-            transform.localScale = new Vector3(-1,1,1);
-        }else{
-            transform.localScale = new Vector3(1,1,1);
+    void Movement()
+    {
+        Vector2 dir = (target - new Vector2(transform.position.x, transform.position.y));
+        if (dir.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        if(dir.magnitude < 0.1){
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (dir.magnitude < 0.1)
+        {
             inTransition = false;
             dir = Vector2.zero;
             target = new Vector2(transform.position.x, transform.position.y);
-            anim.SetBool("isWalking",false);
-        }else{
-            anim.SetBool("isWalking",true);
+            anim.SetBool("isWalking", false);
+        }
+        else
+        {
+            anim.SetBool("isWalking", true);
         }
         dir.Normalize();
-        if(runDuration < 2.0f){
+        if (runDuration < 2.0f)
+        {
             canBeTalkedTo = true;
             dir.y = 0;
-            if(!isRunning)target = target+dir*10f;
-            cc.Move(dir*runSpeed*Time.deltaTime);
+            if (!isRunning) target = target + dir * 10f;
+            cc.Move(dir * runSpeed * Time.deltaTime);
             isRunning = true;
-        }else {
+        }
+        else
+        {
             canBeTalkedTo = false;
-            cc.Move(dir*walkSpeed*Time.deltaTime);
+            cc.Move(dir * walkSpeed * Time.deltaTime);
             isRunning = false;
         }
     }
 
-    public void StartRunning(){
+    public void StartRunning()
+    {
         runDuration = 0f;
         hasRun = true;
     }
 
-    public void PhoneCall(){
+    public void PhoneCall()
+    {
         ds.EndDialogue();
         phoneBattery -= 1;
     }
 
-    public void PutOnHeadphones(){
+    public void PutOnHeadphones()
+    {
         musicDuration = 0f;
         headphonesBattery -= 1;
         morale += 24;
     }
 
-    public void EnterTransition(){
-        Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));
+    public void EnterTransition()
+    {
+        Vector2 dir = (target - new Vector2(transform.position.x, transform.position.y));
         dir.y = 0;
-        target = target+dir*10f;
+        target = target + dir * 10f;
         inTransition = true;
         hasRun = false;
     }
 
-    public void GiveObject(int id){
+    public void GiveObject(int id)
+    {
         score += objectValue[id];
         hasObject[id] = true;
     }
