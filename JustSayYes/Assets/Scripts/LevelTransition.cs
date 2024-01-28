@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class LevelTransition : MonoBehaviour
 
     void LevelTransit()
     {
+        if(player.hasBookToPay || player.hasChocolateToPay)SceneManager.LoadScene("FinPolice");
         player.cc.enabled = false;
         player.gameObject.transform.position = new Vector3(nextPlayerPosition.x, nextPlayerPosition.y, player.transform.position.z);
         player.cc.enabled = true;
