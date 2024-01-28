@@ -133,7 +133,6 @@ public class Player : MonoBehaviour
         {
             srHead.sprite = spriteSad;
         }
-        Debug.Log(phoneCallDuration < 1.0f);
         srPhoneCall.gameObject.SetActive(phoneCallDuration < 1.0f);
         if (musicDuration < 12f)
         {
