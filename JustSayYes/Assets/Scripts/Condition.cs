@@ -31,18 +31,21 @@ public class Condition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(
+        if (
             ((hasMetFrenchy && player.hasMetFrenchGuy) || (!hasMetFrenchy)) &&
             ((hasNotMetFrenchy && !player.hasMetFrenchGuy) || (!hasNotMetFrenchy)) &&
             ((hasMetSectare && player.hasMetSect) || (!hasMetSectare)) &&
             ((hasNotMetSectare && !player.hasMetSect) || (!hasNotMetSectare)) &&
             ((hasPhone && player.hasPhone) || (!hasPhone)) &&
             ((hasNotPhone && !player.hasPhone) || (!hasNotPhone)) &&
-            ((hasPlayerRun && player.hasRun) || (hasPlayerRun)) &&
-            (cam.timeOfDay/cam.timeEndOfDay > timeArrival && cam.timeOfDay/cam.timeEndOfDay < timeDeparture)
-        ){
+            ((hasPlayerRun && player.hasRun) || (!hasPlayerRun)) &&
+            (cam.timeOfDay / cam.timeEndOfDay > timeArrival && cam.timeOfDay / cam.timeEndOfDay < timeDeparture)
+        )
+        {
             target.SetActive(true);
-        }else{
+        }
+        else
+        {
             target.SetActive(false);
         }
     }
