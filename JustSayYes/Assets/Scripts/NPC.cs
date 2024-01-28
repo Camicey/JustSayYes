@@ -6,7 +6,8 @@ public enum behaviorType // your custom enumeration
 {
     Follower, 
     Indifferent,
-    RollerKid
+    RollerKid,
+    Talkable
 };
 
 
@@ -57,7 +58,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if(behavior == behaviorType.Indifferent)target = new Vector2(transform.position.x,transform.position.y);
         if(behavior == behaviorType.Follower)FollowerBehavior();
         if(behavior == behaviorType.RollerKid)RollerKidBehavior();
@@ -107,6 +108,12 @@ public class NPC : MonoBehaviour
             target = startingPoint + Vector2.right * Random.Range(-10f,10f) + Vector2.up* Random.Range(-1f,1f);
         }
 
+    }
+
+    void TalkableBehavior(){
+        if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && lastTimeTalked > 10f){
+            ds.StartDialogue(gameObject.GetComponent<NPC>());
+            }
     }
 
     public void DoneTalking(){
