@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class Player : MonoBehaviour
     public bool hasFromage = false;
 
 
+    public bool hasRun = false;
+
+    public bool isGuilty = false;
 
     public int phoneBattery = 4;
     public int headphonesBattery = 3;
@@ -84,6 +88,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(morale <= 0)SceneManager.LoadScene("PsyFin");
         morale = Mathf.Clamp(morale,0,100);
         moralBar.value = morale;
         runDuration += Time.deltaTime;
@@ -177,6 +182,7 @@ public class Player : MonoBehaviour
 
     public void StartRunning(){
         runDuration = 0f;
+        hasRun = true;
     }
 
     public void PhoneCall(){
@@ -195,6 +201,7 @@ public class Player : MonoBehaviour
         dir.y = 0;
         target = target+dir*10f;
         inTransition = true;
+        hasRun = false;
     }
 
     public void GiveObject(int id){
