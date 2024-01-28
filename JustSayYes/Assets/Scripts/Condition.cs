@@ -10,8 +10,12 @@ public class Condition : MonoBehaviour
     public GameObject target;
 
     public bool hasMetFrenchy = false;
+    public bool hasNotMetFrenchy = false;
     public bool hasMetSectare = false;
+    public bool hasNotMetSectare = false;
     public bool hasPhone = false;
+    public bool hasNotPhone = false;
+    public bool hasPlayerRun = false;
 
     public float timeArrival = 0f;
     public float timeDeparture = 2f;
@@ -27,8 +31,12 @@ public class Condition : MonoBehaviour
     {
         if(
             ((hasMetFrenchy && player.hasMetFrenchGuy) || (!hasMetFrenchy)) &&
+            ((hasNotMetFrenchy && !player.hasMetFrenchGuy) || (!hasNotMetFrenchy)) &&
             ((hasMetSectare && player.hasMetSect) || (!hasMetSectare)) &&
+            ((hasNotMetSectare && !player.hasMetSect) || (!hasNotMetSectare)) &&
             ((hasPhone && player.hasPhone) || (!hasPhone)) &&
+            ((hasNotPhone && !player.hasPhone) || (!hasNotPhone)) &&
+            ((hasPlayerRun && player.hasRun) || (hasPlayerRun)) &&
             (cam.timeOfDay/cam.timeEndOfDay > timeArrival && cam.timeOfDay/cam.timeEndOfDay < timeDeparture)
         ){
             target.SetActive(true);
