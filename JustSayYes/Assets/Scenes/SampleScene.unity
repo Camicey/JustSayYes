@@ -16165,9 +16165,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Phone
       objectReference: {fileID: 0}
+    - target: {fileID: 4951546129593524707, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: m_Height
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951546129593524707, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: m_Radius
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 5252522867257168117, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3167973
+      value: 1.4838988
       objectReference: {fileID: 0}
     - target: {fileID: 5252522867257168117, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: m_LocalScale.y
@@ -16175,11 +16183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252522867257168117, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.01
+      value: -4.072
       objectReference: {fileID: 0}
     - target: {fileID: 5252522867257168117, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: 0.034
       objectReference: {fileID: 0}
     - target: {fileID: 5252522867257168117, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16226,8 +16234,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[0].responses.Array.data[0].next
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.data[0].responses.Array.data[0].text
       value: 'Yes, lets take it '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[0].responses.Array.data[1].next
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[0].responses.Array.data[1].text
+      value: Yes, l
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
