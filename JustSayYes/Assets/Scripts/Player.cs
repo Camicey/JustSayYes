@@ -38,8 +38,12 @@ public class Player : MonoBehaviour
     public bool hasMetSect = false;
     
     public bool hasBook = false;
+    public bool hasBookToPay = false;
+
 
     public bool hasChocolate = false;
+    public bool hasChocolateToPay = false;
+
 
     public bool hasFromage = false;
 
