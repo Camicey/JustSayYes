@@ -140,7 +140,8 @@ public class DialogueSystem : MonoBehaviour
                 break; 
              case 13 : // french goes and see the esperantist
                 player.GetComponent<Player>().frenchIsGone= true ;
-                // more things to do here
+                Destroy(currentNPC.gameObject);
+                EndDialogue();
                 // more french dialogue? 
                 break;
              case 14 : // -10 moni for the ticket
@@ -200,7 +201,6 @@ public class DialogueSystem : MonoBehaviour
                     player.GetComponent<Player>().moneyToPay+=30;
                     player.GetComponent<Player>().hasBook = true;
                     player.GetComponent<Player>().hasBookToPay = true;
-
                     Destroy(currentNPC.gameObject);
                     EndDialogue();
                 }
