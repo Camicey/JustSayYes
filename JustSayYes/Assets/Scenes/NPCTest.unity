@@ -365,11 +365,53 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[3].text
+      value: Oh you don't have enough money? It's all good, I work here this entire
+        week, come back later!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[4].text
+      value: I really appreciate your love for cheese, but you must be selfless and
+        let the others buy them too!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[5].text
+      value: Oh they must have arrived early, I'm going to see him, thank you!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[0].consequence
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
       propertyPath: dialogue.Array.data[4].consequence
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[5].consequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[5].responses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[0].responses.Array.data[2].next
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[3].responses.Array.data[0].consequence
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
       propertyPath: dialogue.Array.data[4].responses.Array.data[0].consequence
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121239342913540116, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
+      propertyPath: dialogue.Array.data[5].responses.Array.data[0].consequence
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6419546675391028445, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
@@ -1126,50 +1168,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[0].text
-      value: Looks like some good chocolate, and it costs only 25 moni
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].text
-      value: Actually, I don't have enough moni
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[0].consequence
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].consequence
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[0].text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[1].text
-      value: Yes, but let's not take it
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[0].responses.Array.data[0].consequence
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[0].consequence
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705410465887416984, guid: b0c434d97924dbb49aed4a62cf6f39e7, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[1].consequence
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1201,8 +1199,8 @@ Transform:
   m_GameObject: {fileID: 410972817}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3907853, y: 0.010000005, z: 5.0712557}
-  m_LocalScale: {x: 1.5852, y: 2.2514, z: 1}
+  m_LocalPosition: {x: 1.4291, y: -0.013, z: 5.0712557}
+  m_LocalScale: {x: 1.5086348, y: 2.2973287, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 376515581}
@@ -2166,6 +2164,7 @@ MonoBehaviour:
   timeEndOfDay: 120
   limitDistance: 15
   target: {x: 0, y: 0, z: 0}
+  Maison: {fileID: 0}
 --- !u!81 &897359088
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3623,50 +3622,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[0].text
-      value: Looks like a really nice book, and even though it costs 30 moni
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].text
-      value: Actually, I don't have enough money, I should find another gift
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[0].consequence
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].consequence
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[0].text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[1].text
-      value: Yes, but let's not take it
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[0].responses.Array.data[1].consequence
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[0].consequence
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402720671621117660, guid: f636c6034684d17408a7b67395e6737b, type: 3}
-      propertyPath: dialogue.Array.data[1].responses.Array.data[1].consequence
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 9005235516238108392, guid: f636c6034684d17408a7b67395e6737b, type: 3}
       propertyPath: m_Name
       value: NuclearBook
@@ -4065,8 +4020,8 @@ Transform:
   m_GameObject: {fileID: 1660895220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -2.53, z: 2}
-  m_LocalScale: {x: 21.0573, y: 3.0397646, z: 1}
+  m_LocalPosition: {x: 0.68, y: -2.5147, z: 2}
+  m_LocalScale: {x: 21.0573, y: 3.0704663, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4896,6 +4851,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasRunShoes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: phoneButton
       value: 
       objectReference: {fileID: 1166663891}
@@ -5244,17 +5203,38 @@ PrefabInstance:
       propertyPath: behavior
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 830908213156220132, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830908213156220132, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
+      propertyPath: dialogue.Array.data[4].text
+      value: I really appreciate your love for cheese, but you must be selfless and
+        let the others buy them too!
+      objectReference: {fileID: 0}
+    - target: {fileID: 830908213156220132, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
+      propertyPath: dialogue.Array.data[4].consequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830908213156220132, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
+      propertyPath: dialogue.Array.data[4].responses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830908213156220132, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
+      propertyPath: dialogue.Array.data[4].responses.Array.data[0].consequence
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3249011232229684252, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_Name
       value: French
       objectReference: {fileID: 0}
     - target: {fileID: 3296707342369209087, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.84
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3296707342369209087, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.95
+      value: -2.44
       objectReference: {fileID: 0}
     - target: {fileID: 3296707342369209087, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5303,11 +5283,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1864746732847729999, guid: 389b595f96223474db2071a5d4e0f93b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.92
+      value: 6.3
       objectReference: {fileID: 0}
     - target: {fileID: 1864746732847729999, guid: 389b595f96223474db2071a5d4e0f93b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.03
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 1864746732847729999, guid: 389b595f96223474db2071a5d4e0f93b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5364,11 +5344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8825871196922594097, guid: 89fa73fd67d2e3943b3731858f08b3db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.91
+      value: -6.54
       objectReference: {fileID: 0}
     - target: {fileID: 8825871196922594097, guid: 89fa73fd67d2e3943b3731858f08b3db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.06
+      value: -2.92
       objectReference: {fileID: 0}
     - target: {fileID: 8825871196922594097, guid: 89fa73fd67d2e3943b3731858f08b3db, type: 3}
       propertyPath: m_LocalPosition.z

@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
 
 
     public bool hasFromage = false;
+    public bool hasFromageToPay = false;
 
     public bool hasRun = false;
 
