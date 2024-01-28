@@ -22,16 +22,29 @@ public class Player : MonoBehaviour
 
     public int morale = 100;
     public int money = 50;
+
+    public int moneyToPay =0;
     public int score = 0;
 
    
 
     public bool hasPhone = false;
-    public bool hasRunShoes = true;
+    public bool hasRunShoes = false;
     public bool hasHeadphones = false;
 
     public bool hasMetFrenchGuy = false;
+
+    public bool frenchIsGone = false;
+
     public bool hasMetSect = false;
+    
+    public bool hasBook = false;
+
+    public bool hasChocolate = false;
+
+    public bool hasFromage = false;
+
+
     public bool hasRun = false;
 
     public bool isGuilty = false;

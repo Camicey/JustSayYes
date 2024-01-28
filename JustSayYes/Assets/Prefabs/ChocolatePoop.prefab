@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6419546675391028445
+--- !u!1 &1137082440675104031
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1518456601008151364}
-  - component: {fileID: 3059112951627204770}
-  - component: {fileID: 700897795234928284}
-  - component: {fileID: 5121239342913540116}
+  - component: {fileID: 6519403423731247553}
+  - component: {fileID: 5823554479957729817}
+  - component: {fileID: 8861529546799365587}
+  - component: {fileID: 8705410465887416984}
   m_Layer: 0
-  m_Name: French if esperantist met
+  m_Name: ChocolatePoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1518456601008151364
+--- !u!4 &6519403423731247553
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6419546675391028445}
+  m_GameObject: {fileID: 1137082440675104031}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.37, y: -1.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.269, y: -0.629, z: -0.12}
+  m_LocalScale: {x: 0.7438, y: 0.6798, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7848295578052943814}
+  - {fileID: 5927760871555866873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3059112951627204770
+--- !u!212 &5823554479957729817
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6419546675391028445}
+  m_GameObject: {fileID: 1137082440675104031}
   m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!143 &700897795234928284
+--- !u!143 &8861529546799365587
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6419546675391028445}
+  m_GameObject: {fileID: 1137082440675104031}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -106,72 +106,40 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.25
-  m_Radius: 0.25
+  m_Height: 1.15
+  m_Radius: 0.53
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5121239342913540116
+--- !u!114 &8705410465887416984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6419546675391028445}
+  m_GameObject: {fileID: 1137082440675104031}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8188331968318f14997046c1dfbe661c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Stinky Guy
-  behavior: 0
-  walkSpeed: 2.5
+  name: ChocolatePoop
+  behavior: 3
+  walkSpeed: 0
   dialogue:
-  - text: 'Bonjour ! Would you like to try some cheese samples? '
+  - text: Looks like some good chocolate
     responses:
-    - text: Oui!
-      next: 1
-      consequence: 0
-    - text: Yes, sure
-      next: 1
-      consequence: 0
-    - text: 'Yes, but actually I met an esperantist.. '
-      next: 4
-      consequence: 0
-    consequence: 1
-  - text: You seem to enjoy them a lot! How many different cheeses do you want to
-      buy ?
-    responses:
-    - text: Oui
-      next: 2
-      consequence: 0
-    - text: Yes
-      next: 2
-      consequence: 0
-    consequence: 6
-  - text: 'Merci beaucoup ! '
-    responses:
-    - text: Yes
+    - text: Yes, let's take it
       next: 0
       consequence: -1
-    consequence: 1
-  - text: Oh you don't have enough money? It's all good, I work here this entire
-      week, come back later!
-    responses:
-    - text: 
+    - text: Yes, but let's not take it
       next: 0
       consequence: -1
-    consequence: 1
-  - text: Oh they must have arrived early, I'm going to see him, thank you!
-    responses:
-    - text: 
-      next: 0
-      consequence: -1
-    consequence: 13
+    consequence: 21
   inDialogue: 0
---- !u!1 &6721757639644935734
+--- !u!1 &2462838751943956344
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,8 +147,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7848295578052943814}
-  - component: {fileID: 1737283494808566609}
+  - component: {fileID: 5927760871555866873}
+  - component: {fileID: 7708901945171757833}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -188,28 +156,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7848295578052943814
+--- !u!4 &5927760871555866873
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6721757639644935734}
+  m_GameObject: {fileID: 2462838751943956344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1518456601008151364}
+  m_Father: {fileID: 6519403423731247553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1737283494808566609
+--- !u!212 &7708901945171757833
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6721757639644935734}
+  m_GameObject: {fileID: 2462838751943956344}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -244,7 +212,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8386a8647fa0b2e4ebc3db718bfae602, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef95272b0f1dd4b4ab5565beab0e37b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

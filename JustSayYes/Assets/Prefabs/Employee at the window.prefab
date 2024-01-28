@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 9206202054059008183}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.722, y: -2.171, z: 0}
+  m_LocalPosition: {x: 7.26, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -245,18 +245,18 @@ MonoBehaviour:
       next: 0
       consequence: -1
     consequence: 0
-  - text: 'Alright, there''s a special offer today, every travel costs 40 moni, when
+  - text: 'Alright, there''s a special offer today, every travel costs 15 moni, when
       do you want to leave, tomorrow? '
     responses:
     - text: Yes, to the Mushroom Kingdom
       next: 5
-      consequence: 3
-    - text: Yes, to Hiroshima
+      consequence: 15
+    - text: Yes, to Chernobyl
       next: 6
-      consequence: 3
+      consequence: 15
     - text: Yes, to metropolis
       next: 7
-      consequence: 3
+      consequence: 15
     - text: Yes, to Europe
       next: 8
       consequence: 0
@@ -287,4 +287,3 @@ MonoBehaviour:
       consequence: -1
     consequence: 0
   inDialogue: 0
-  lastTimeTalked: 0
