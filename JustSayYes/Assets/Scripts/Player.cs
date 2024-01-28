@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float recoverySpeed = 1f;
     public float runSpeed = 5f;
     public float runDuration = 20f;
+    public float phoneCallDuration = 5f;
     public float musicDuration = 15f;
     public LayerMask walkableLayer;
     public bool canMove = true;
@@ -41,7 +42,8 @@ public class Player : MonoBehaviour
     public Button headphonesButton;
     public Button phoneButton;
     public Button runButton;
-    public Sprite spriteHeadPhones;
+    public Sprite spriteHeadPhones1;
+    public Sprite spriteHeadPhones2;
     public Sprite spriteHappy;
     public Sprite spriteNeutral;
     public Sprite spriteSad;
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
 
     public Slider moralBar;
     public SpriteRenderer srHead;
+    public SpriteRenderer srPhoneCall;
 
     public CharacterController cc;
     public Vector2 target;
@@ -80,6 +83,7 @@ public class Player : MonoBehaviour
         moralBar.value = morale;
         runDuration += Time.deltaTime;
         musicDuration += Time.deltaTime;
+        phoneCallDuration += Time.deltaTime;
         runButton.interactable = (runDuration > 20f);
         phoneButton.gameObject.SetActive(hasPhone);
         phoneButton.interactable = (inDialogue && phoneBattery > 0);
@@ -107,7 +111,14 @@ public class Player : MonoBehaviour
         }
         if(musicDuration < 12f){
             canBeTalkedTo = true;
+            if(Mathf.RoundToInt(musicDuration * 4) % 2 == 1){
+                srHead.sprite = spriteHeadPhones1;
+            }else{
+                srHead.sprite = spriteHeadPhones2;
+            }
             music.volume = Mathf.Lerp(music.volume,0.5f,0.02f);
+
+         srPhoneCall.gameObject.SetActive(phoneCallDuration < 1.0f);
 
         }else{
             canBeTalkedTo = false;
@@ -175,6 +186,7 @@ public class Player : MonoBehaviour
     public void PhoneCall(){
         ds.EndDialogue();
         phoneBattery -= 1;
+        phoneCallDuration = 0f;
     }
 
     public void PutOnHeadphones(){
