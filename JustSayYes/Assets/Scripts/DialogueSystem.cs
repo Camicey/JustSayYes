@@ -44,7 +44,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
     void ShowDialogue(){
-        cam.timeOfDay += 5f;
+        cam.timeOfDay += 2f;
         ApplyConsequence(currentNPC.dialogue[chunk].consequence);
         choiceButtonsText[0].gameObject.SetActive(false);
         choiceButtonsText[1].gameObject.SetActive(false);
@@ -65,7 +65,7 @@ public class DialogueSystem : MonoBehaviour
 
     }
 
-    void EndDialogue(){
+    public void EndDialogue(){
         player.GetComponent<Player>().canMove = true;
         player.GetComponent<Player>().inDialogue = false;
         cam.inDialogue = false;

@@ -10,11 +10,13 @@ public class Player : MonoBehaviour
     public float recoverySpeed = 1f;
     public float runSpeed = 5f;
     public float runDuration = 5f;
+    public float musicDuration = 15f;
     public LayerMask walkableLayer;
     public bool canMove = true;
     public bool inDialogue = false;
     public bool canBeTalkedTo = true;
     public bool isRunning = false;
+    public bool inTransition = true;
 
     public int morale = 100;
     public int money = 50;
@@ -26,6 +28,9 @@ public class Player : MonoBehaviour
     public bool hasHeadphones = false;
     public bool hasFromage = false;
 
+    public int phoneBattery = 4;
+    public int hpBattery = 3;
+
     public Button headphonesButton;
     public Button phoneButton;
     public Button runButton;
@@ -35,27 +40,31 @@ public class Player : MonoBehaviour
     public Slider moralBar;
     public SpriteRenderer srHead;
 
-    CharacterController cc;
-    Vector2 target;
+    public CharacterController cc;
+    public Vector2 target;
     Animator anim;
-
+    DialogueSystem ds;
     // Start is called before the first frame update
     void Start()
     {
         target = new Vector2(transform.position.x, transform.position.y);
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        ds = GameObject.Find("Dialogue").GetComponent<DialogueSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         moralBar.value = morale;
         runDuration += Time.deltaTime;
         runButton.interactable = (runDuration > 20f);
         phoneButton.gameObject.SetActive(hasPhone);
+        phoneButton.interactable = (inDialogue && phoneBattery > 0);
         headphonesButton.gameObject.SetActive(hasHeadphones);
         runButton.gameObject.SetActive(hasRunShoes);
+
         if(morale > 70){
             srHead.sprite = spriteHappy;
         }else if(morale > 30){
@@ -63,6 +72,12 @@ public class Player : MonoBehaviour
         }else{
             srHead.sprite = spriteSad;
         }
+        if(musicDuration < 12f){
+            canBeTalkedTo = true;
+        }else{
+            canBeTalkedTo = false;
+        }
+
         if (canMove)
         {
             MouseInput();
@@ -95,6 +110,7 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(1,1,1);
         }
         if(dir.magnitude < 0.1){
+            inTransition = false;
             dir = Vector2.zero;
             target = new Vector2(transform.position.x, transform.position.y);
             anim.SetBool("isWalking",false);
@@ -121,5 +137,20 @@ public class Player : MonoBehaviour
 
     public void StartRunning(){
         runDuration = 0f;
+    }
+
+    public void PhoneCall(){
+        ds.EndDialogue();
+    }
+
+    public void PutOnHeadphones(){
+        musicDuration = 0f;
+    }
+
+    public void EnterTransition(){
+        Vector2 dir = (target-new Vector2(transform.position.x,transform.position.y));
+        dir.y = 0;
+        target = target+dir*10f;
+        inTransition = true;
     }
 }
