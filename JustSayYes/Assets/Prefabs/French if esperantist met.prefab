@@ -142,7 +142,7 @@ MonoBehaviour:
       consequence: 0
     consequence: 1
   - text: You seem to enjoy them a lot! How many different cheeses do you want to
-      try ?
+      buy ?
     responses:
     - text: Oui
       next: 2
@@ -164,7 +164,6 @@ MonoBehaviour:
       consequence: -1
     consequence: 13
   inDialogue: 0
-  lastTimeTalked: 0
 --- !u!1 &6721757639644935734
 GameObject:
   m_ObjectHideFlags: 0

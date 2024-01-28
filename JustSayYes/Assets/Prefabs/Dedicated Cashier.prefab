@@ -223,7 +223,7 @@ MonoBehaviour:
       next: 3
       consequence: 4
     consequence: 1
-  - text: Planning some DIW ? I respect that! So, let me sum it up.. it costs 60
+  - text: Planning some DIW ? I respect that! So, let me sum it up.. it costs 20
       moni. By credit card?
     responses:
     - text: Yes
@@ -237,11 +237,24 @@ MonoBehaviour:
       consequence: -1
     consequence: 1
   - text: 'Ohh these are lovely chocolate, that will make someone happy! So, let
-      me sum it up.. it costs 20 moni. By credit card? '
+      me sum it up.. it costs 10 moni. By credit card? '
+    responses:
+    - text: Yes
+      next: 2
+      consequence: 0
+    consequence: 1
+  - text: 'Ohh these are lovely chocolate, that will make someone happy! So, let
+      me sum it up.. it costs 25 moni. By credit card? '
+    responses:
+    - text: Yes
+      next: 2
+      consequence: 0
+    consequence: 1
+  - text: Planning some DIW ? I respect that! So, let me sum it up.. it costs 35
+      moni. By credit card?
     responses:
     - text: Yes
       next: 2
       consequence: 0
     consequence: 1
   inDialogue: 0
-  lastTimeTalked: 0
