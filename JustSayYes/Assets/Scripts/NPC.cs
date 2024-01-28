@@ -62,6 +62,7 @@ public class NPC : MonoBehaviour
         if(behavior == behaviorType.Indifferent)target = new Vector2(transform.position.x,transform.position.y);
         if(behavior == behaviorType.Follower)FollowerBehavior();
         if(behavior == behaviorType.RollerKid)RollerKidBehavior();
+        if(behavior == behaviorType.Talkable)TalkableBehavior();
         if(!inDialogue){
             lastTimeTalked += Time.deltaTime;
             Movement();
@@ -111,7 +112,7 @@ public class NPC : MonoBehaviour
     }
 
     void TalkableBehavior(){
-        if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && lastTimeTalked > 10f){
+        if(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude < 1 && !player.GetComponent<Player>().inDialogue && lastTimeTalked > 5f){
             ds.StartDialogue(gameObject.GetComponent<NPC>());
             }
     }
