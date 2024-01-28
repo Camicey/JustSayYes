@@ -33,13 +33,15 @@ public class NPC : MonoBehaviour
     public float walkSpeed = 2.5f;
     public DialogueChunk[] dialogue;
     public bool inDialogue = false;
-    public float lastTimeTalked = 10f;
 
     DialogueSystem ds;
     CharacterController cc;
     GameObject player;
     Vector2 target;
     Vector2 startingPoint;
+    CameraDirector cam;
+
+    float lastTimeTalked = 999999f;
     
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,7 @@ public class NPC : MonoBehaviour
         cc = GetComponent<CharacterController>();
         ds = GameObject.Find("Dialogue").GetComponent<DialogueSystem>();
         startingPoint = new Vector2(player.transform.position.x,player.transform.position.y);
+        cam = GameObject.Find("Main Camera").GetComponent<CameraDirector>();
     }
 
     // Update is called once per frame
@@ -107,6 +110,7 @@ public class NPC : MonoBehaviour
 
     public void DoneTalking(){
         if(behavior == behaviorType.Follower)behavior = behaviorType.Indifferent;
+        lastTimeTalked = 0f;
     }
 
 }
