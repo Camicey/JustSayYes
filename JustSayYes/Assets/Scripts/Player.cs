@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float walkSpeed;
     public float recoverySpeed = 1f;
     public float runSpeed = 5f;
-    public float runDuration = 5f;
+    public float runDuration = 20f;
     public float musicDuration = 15f;
     public LayerMask walkableLayer;
     public bool canMove = true;
@@ -20,23 +20,36 @@ public class Player : MonoBehaviour
 
     public int morale = 100;
     public int money = 50;
+    public int score = 0;
 
    
 
     public bool hasPhone = false;
     public bool hasRunShoes = true;
     public bool hasHeadphones = false;
-    public bool hasFromage = false;
+
+    public bool hasMetFrenchGuy = false;
+    public bool hasMetSect = false;
 
     public int phoneBattery = 4;
-    public int hpBattery = 3;
+    public int headphonesBattery = 3;
 
     public Button headphonesButton;
     public Button phoneButton;
     public Button runButton;
+    public Sprite spriteHeadPhones;
     public Sprite spriteHappy;
     public Sprite spriteNeutral;
     public Sprite spriteSad;
+
+    public Sprite[] batteryLevels;
+    public Image batteryHeadPhonesLevel;
+    public Image batteryPhoneLevel;
+
+    public Image[] objectDisplay;
+    public bool[] hasObject;
+    public int[] objectValue;
+
     public Slider moralBar;
     public SpriteRenderer srHead;
 
@@ -44,6 +57,7 @@ public class Player : MonoBehaviour
     public Vector2 target;
     Animator anim;
     DialogueSystem ds;
+    AudioSource music;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,19 +65,33 @@ public class Player : MonoBehaviour
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         ds = GameObject.Find("Dialogue").GetComponent<DialogueSystem>();
+        music = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        morale = Mathf.Clamp(morale,0,100);
         moralBar.value = morale;
         runDuration += Time.deltaTime;
+        musicDuration += Time.deltaTime;
         runButton.interactable = (runDuration > 20f);
         phoneButton.gameObject.SetActive(hasPhone);
         phoneButton.interactable = (inDialogue && phoneBattery > 0);
         headphonesButton.gameObject.SetActive(hasHeadphones);
+        phoneButton.interactable = (headphonesBattery > 0 && musicDuration > 12f);
         runButton.gameObject.SetActive(hasRunShoes);
+
+        if(phoneButton.interactable && Input.GetButtonDown("Phone"))PhoneCall();
+        if(runButton.interactable && Input.GetButtonDown("Run"))StartRunning();
+        if(headphonesButton.interactable && Input.GetButtonDown("Headphones"))PutOnHeadphones();
+
+        batteryPhoneLevel.sprite = batteryLevels[phoneBattery];
+        batteryHeadPhonesLevel.sprite = batteryLevels[headphonesBattery];
+
+        for(int i = 0; i < hasObject.Length; i++){
+            objectDisplay[i].gameObject.SetActive(hasObject[i]);
+        }
 
         if(morale > 70){
             srHead.sprite = spriteHappy;
@@ -74,8 +102,11 @@ public class Player : MonoBehaviour
         }
         if(musicDuration < 12f){
             canBeTalkedTo = true;
+            music.volume = Mathf.Lerp(music.volume,0.5f,0.02f);
+
         }else{
             canBeTalkedTo = false;
+            music.volume = Mathf.Lerp(music.volume,0f,0.02f);
         }
 
         if (canMove)
@@ -124,10 +155,6 @@ public class Player : MonoBehaviour
             if(!isRunning)target = target+dir*10f;
             cc.Move(dir*runSpeed*Time.deltaTime);
             isRunning = true;
-        }else if(runDuration < 5.0f){
-            canBeTalkedTo = false;
-            cc.Move(dir*recoverySpeed*Time.deltaTime);
-            isRunning = false;
         }else {
             canBeTalkedTo = false;
             cc.Move(dir*walkSpeed*Time.deltaTime);
@@ -141,10 +168,13 @@ public class Player : MonoBehaviour
 
     public void PhoneCall(){
         ds.EndDialogue();
+        phoneBattery -= 1;
     }
 
     public void PutOnHeadphones(){
         musicDuration = 0f;
+        headphonesBattery -= 1;
+        morale += 24;
     }
 
     public void EnterTransition(){
@@ -152,5 +182,10 @@ public class Player : MonoBehaviour
         dir.y = 0;
         target = target+dir*10f;
         inTransition = true;
+    }
+
+    public void GiveObject(int id){
+        score += objectValue[id];
+        hasObject[id] = true;
     }
 }

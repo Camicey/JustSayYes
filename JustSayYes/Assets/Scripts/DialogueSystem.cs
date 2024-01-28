@@ -91,6 +91,14 @@ public class DialogueSystem : MonoBehaviour
             case 2: //Major inconvenience
                 player.GetComponent<Player>().morale -= 40;
                 break;
+            case 3: //Pet Dog
+                player.GetComponent<Player>().morale += 5;
+                cam.timeOfDay += 4f;
+                break;
+            case 4: //Pet Dog Bite
+                player.GetComponent<Player>().morale -= 20;
+                
+                break;
         }
 
     }

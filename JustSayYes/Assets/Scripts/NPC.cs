@@ -57,6 +57,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(behavior == behaviorType.Indifferent)target = new Vector2(transform.position.x,transform.position.y);
         if(behavior == behaviorType.Follower)FollowerBehavior();
         if(behavior == behaviorType.RollerKid)RollerKidBehavior();
