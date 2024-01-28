@@ -39,9 +39,9 @@ public class Condition : MonoBehaviour
             ((hasPhone && player.hasPhone) || (!hasPhone)) &&
             ((hasNotPhone && !player.hasPhone) || (!hasNotPhone)) &&
             ((hasPlayerRun && player.hasRun) || (!hasPlayerRun)) &&
-            (cam.timeOfDay / cam.timeEndOfDay > timeArrival && cam.timeOfDay / cam.timeEndOfDay < timeDeparture)
-        )
-        {
+            (cam.timeOfDay/cam.timeEndOfDay > timeArrival && cam.timeOfDay/cam.timeEndOfDay < timeDeparture)
+        ){
+
             target.SetActive(true);
         }
         else
