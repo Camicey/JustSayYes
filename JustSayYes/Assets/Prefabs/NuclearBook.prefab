@@ -217,7 +217,7 @@ MonoBehaviour:
     responses:
     - text: Yes, let's take it
       next: 0
-      consequence: -1
+      consequence: 16
     - text: Yes, but let's not take it
       next: 0
       consequence: -1

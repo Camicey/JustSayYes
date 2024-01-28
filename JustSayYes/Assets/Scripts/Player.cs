@@ -34,9 +34,22 @@ public class Player : MonoBehaviour
 
     public bool hasMetFrenchGuy = false;
     public bool hasMetSect = false;
+    
+    public bool hasBook = false;
+    public bool hasBookToPay = false;
+
+
+    public bool hasChocolate = false;
+    public bool hasChocolateToPay = false;
+
+
+    public bool hasFromage = false;
+
     public bool hasRun = false;
 
     public bool isGuilty = false;
+
+    public bool frenchIsGone = false;
 
     public int phoneBattery = 4;
     public int headphonesBattery = 3;
@@ -57,11 +70,6 @@ public class Player : MonoBehaviour
     public Image[] objectDisplay;
     public bool[] hasObject;
     public int[] objectValue;
-
-    public bool hasFromage;
-    public bool hasChocolate;
-    public bool hasBook;
-    public bool frenchIsGone;
 
     public Slider moralBar;
     public SpriteRenderer srHead;
