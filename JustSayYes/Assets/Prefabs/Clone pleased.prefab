@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 7546781759510639336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.44, y: -2.42, z: 0}
+  m_LocalPosition: {x: -3.87, y: -2.65, z: 0}
   m_LocalScale: {x: 1, y: 0.9874, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -215,9 +215,8 @@ MonoBehaviour:
   dialogue:
   - text: 'Hey! You come from outside? How good! '
     responses:
-    - text: Yes, actually I have something for you ..
+    - text: Yes, actually I a few things for you ..
       next: 0
       consequence: -1
     consequence: 0
   inDialogue: 0
-  lastTimeTalked: 0
