@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float recoverySpeed = 1f;
     public float runSpeed = 5f;
     public float runDuration = 20f;
+    public float phoneCallDuration = 5f;
     public float musicDuration = 15f;
     public LayerMask walkableLayer;
     public bool canMove = true;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     public int money = 50;
     public int score = 0;
 
+    public int moneyToPay = 0;
+
 
 
     public bool hasPhone = false;
@@ -31,9 +34,22 @@ public class Player : MonoBehaviour
 
     public bool hasMetFrenchGuy = false;
     public bool hasMetSect = false;
+
+    public bool hasBook = false;
+    public bool hasBookToPay = false;
+
+
+    public bool hasChocolate = false;
+    public bool hasChocolateToPay = false;
+
+
+    public bool hasFromage = false;
+
     public bool hasRun = false;
 
     public bool isGuilty = false;
+
+    public bool frenchIsGone = false;
 
     public int phoneBattery = 4;
     public int headphonesBattery = 3;
@@ -41,7 +57,8 @@ public class Player : MonoBehaviour
     public Button headphonesButton;
     public Button phoneButton;
     public Button runButton;
-    public Sprite spriteHeadPhones;
+    public Sprite spriteHeadPhones1;
+    public Sprite spriteHeadPhones2;
     public Sprite spriteHappy;
     public Sprite spriteNeutral;
     public Sprite spriteSad;
@@ -56,6 +73,7 @@ public class Player : MonoBehaviour
 
     public Slider moralBar;
     public SpriteRenderer srHead;
+    public SpriteRenderer srPhoneCall;
 
     public CharacterController cc;
     public Vector2 target;
@@ -75,16 +93,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (morale <= 0) SceneManager.LoadScene("PsyFin");
+        if (morale <= 0) SceneManager.LoadScene("FinPsy");
         morale = Mathf.Clamp(morale, 0, 100);
         moralBar.value = morale;
         runDuration += Time.deltaTime;
         musicDuration += Time.deltaTime;
+        phoneCallDuration += Time.deltaTime;
         runButton.interactable = (runDuration > 20f);
         phoneButton.gameObject.SetActive(hasPhone);
         phoneButton.interactable = (inDialogue && phoneBattery > 0);
         headphonesButton.gameObject.SetActive(hasHeadphones);
-        phoneButton.interactable = (headphonesBattery > 0 && musicDuration > 12f);
+        headphonesButton.interactable = (headphonesBattery > 0 && musicDuration > 12f);
         runButton.gameObject.SetActive(hasRunShoes);
 
         if (phoneButton.interactable && Input.GetButtonDown("Phone")) PhoneCall();
@@ -111,10 +130,22 @@ public class Player : MonoBehaviour
         {
             srHead.sprite = spriteSad;
         }
+        Debug.Log(phoneCallDuration < 1.0f);
+        srPhoneCall.gameObject.SetActive(phoneCallDuration < 1.0f);
         if (musicDuration < 12f)
         {
             canBeTalkedTo = true;
+            if (Mathf.RoundToInt(musicDuration * 4) % 2 == 1)
+            {
+                srHead.sprite = spriteHeadPhones1;
+            }
+            else
+            {
+                srHead.sprite = spriteHeadPhones2;
+            }
             music.volume = Mathf.Lerp(music.volume, 0.5f, 0.02f);
+
+
 
         }
         else
@@ -123,7 +154,7 @@ public class Player : MonoBehaviour
             music.volume = Mathf.Lerp(music.volume, 0f, 0.02f);
         }
 
-        if (canMove)
+        if (canMove && phoneCallDuration >= 1.0f)
         {
             MouseInput();
             Movement();
@@ -199,6 +230,7 @@ public class Player : MonoBehaviour
     {
         ds.EndDialogue();
         phoneBattery -= 1;
+        phoneCallDuration = 0f;
     }
 
     public void PutOnHeadphones()
