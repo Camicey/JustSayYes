@@ -22,29 +22,18 @@ public class Player : MonoBehaviour
 
     public int morale = 100;
     public int money = 50;
-
-    public int moneyToPay =0;
     public int score = 0;
+
+    public int moneyToPay = 0;
 
    
 
     public bool hasPhone = false;
-    public bool hasRunShoes = false;
+    public bool hasRunShoes = true;
     public bool hasHeadphones = false;
 
     public bool hasMetFrenchGuy = false;
-
-    public bool frenchIsGone = false;
-
     public bool hasMetSect = false;
-    
-    public bool hasBook = false;
-
-    public bool hasChocolate = false;
-
-    public bool hasFromage = false;
-
-
     public bool hasRun = false;
 
     public bool isGuilty = false;
@@ -69,6 +58,11 @@ public class Player : MonoBehaviour
     public bool[] hasObject;
     public int[] objectValue;
 
+    public bool hasFromage;
+    public bool hasChocolate;
+    public bool hasBook;
+    public bool frenchIsGone;
+
     public Slider moralBar;
     public SpriteRenderer srHead;
     public SpriteRenderer srPhoneCall;
@@ -91,7 +85,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(morale <= 0)SceneManager.LoadScene("PsyFin");
+        if(morale <= 0)SceneManager.LoadScene("FinPsy");
         morale = Mathf.Clamp(morale,0,100);
         moralBar.value = morale;
         runDuration += Time.deltaTime;
@@ -122,6 +116,8 @@ public class Player : MonoBehaviour
         }else{
             srHead.sprite = spriteSad;
         }
+        Debug.Log(phoneCallDuration < 1.0f);
+        srPhoneCall.gameObject.SetActive(phoneCallDuration < 1.0f);
         if(musicDuration < 12f){
             canBeTalkedTo = true;
             if(Mathf.RoundToInt(musicDuration * 4) % 2 == 1){
@@ -131,7 +127,7 @@ public class Player : MonoBehaviour
             }
             music.volume = Mathf.Lerp(music.volume,0.5f,0.02f);
 
-         srPhoneCall.gameObject.SetActive(phoneCallDuration < 1.0f);
+        
 
         }else{
             canBeTalkedTo = false;
