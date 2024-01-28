@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6419546675391028445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.39, y: -1.32, z: 0}
+  m_LocalPosition: {x: 2.37, y: -1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -138,7 +138,7 @@ MonoBehaviour:
       next: 1
       consequence: 0
     - text: 'Yes, but actually I met an esperantist.. '
-      next: 3
+      next: 4
       consequence: 0
     consequence: 1
   - text: You seem to enjoy them a lot! How many different cheeses do you want to
@@ -154,6 +154,13 @@ MonoBehaviour:
   - text: 'Merci beaucoup ! '
     responses:
     - text: Yes
+      next: 0
+      consequence: -1
+    consequence: 1
+  - text: Oh you don't have enough money? It's all good, I work here this entire
+      week, come back later!
+    responses:
+    - text: 
       next: 0
       consequence: -1
     consequence: 1

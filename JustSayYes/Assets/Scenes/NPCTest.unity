@@ -412,11 +412,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6189743747307014161, guid: 240655e3083ee604fae2b998844522c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.87
+      value: -6.13
       objectReference: {fileID: 0}
     - target: {fileID: 6189743747307014161, guid: 240655e3083ee604fae2b998844522c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.65
+      value: -3.07
       objectReference: {fileID: 0}
     - target: {fileID: 6189743747307014161, guid: 240655e3083ee604fae2b998844522c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3794,7 +3794,7 @@ Transform:
   m_GameObject: {fileID: 1660895220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: -2.53, z: 2}
+  m_LocalPosition: {x: 0.68, y: -2.53, z: 2}
   m_LocalScale: {x: 21.0573, y: 3.0397646, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4589,9 +4589,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: money
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: srHead
       value: 
       objectReference: {fileID: 1663078562}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasBook
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: hasPhone
       value: 1
@@ -4601,6 +4609,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 91890446}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: runSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: runButton
       value: 
       objectReference: {fileID: 37720807}
@@ -4609,6 +4621,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 798febdf5c1509f4b8b8fa98b8e36e5e, type: 3}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasFromage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: phoneButton
       value: 
       objectReference: {fileID: 1166663891}
@@ -4616,6 +4632,10 @@ PrefabInstance:
       propertyPath: spriteHappy
       value: 
       objectReference: {fileID: 21300000, guid: f21fff1f5d6c52444a545e6f42cd6cd1, type: 3}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasChocolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: hasHeadphones
       value: 1
@@ -4955,11 +4975,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3296707342369209087, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.42
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 3296707342369209087, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.15
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 3296707342369209087, guid: dcf19dec22b205c49ac3ccbf8093a46c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5122,11 +5142,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1518456601008151364, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.39
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 1518456601008151364, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.32
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1518456601008151364, guid: 6e474d5f49e96cd4fa5b1ab96c55aeac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5366,11 +5386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901795594667259068, guid: cbab70faaae6b4343adf26798a1b2f3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.95
+      value: 8.93
       objectReference: {fileID: 0}
     - target: {fileID: 5901795594667259068, guid: cbab70faaae6b4343adf26798a1b2f3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.36
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 5901795594667259068, guid: cbab70faaae6b4343adf26798a1b2f3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5456,15 +5476,6 @@ PrefabInstance:
     - target: {fileID: 764085112082864050, guid: c5044e9e30d19c24bb14312534e165cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2005412485520278381, guid: c5044e9e30d19c24bb14312534e165cf, type: 3}
-      propertyPath: dialogue.Array.data[4].text
-      value: 'Alright, there''s a special offer today, every travel costs 15 moni,
-        when do you want to leave, tomorrow? '
-      objectReference: {fileID: 0}
-    - target: {fileID: 2005412485520278381, guid: c5044e9e30d19c24bb14312534e165cf, type: 3}
-      propertyPath: dialogue.Array.data[4].responses.Array.data[1].text
-      value: Yes, to Chernobyl
       objectReference: {fileID: 0}
     - target: {fileID: 9206202054059008183, guid: c5044e9e30d19c24bb14312534e165cf, type: 3}
       propertyPath: m_Name

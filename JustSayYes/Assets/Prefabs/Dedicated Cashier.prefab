@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 5253160430577662240}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.95, y: -1.36, z: 0}
+  m_LocalPosition: {x: -1.37, y: -2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,14 +216,11 @@ MonoBehaviour:
   - text: Hello, I hope you're doing great and having a lovely day! Please, put your
       articles down
     responses:
-    - text: Yes, thank you (book)
+    - text: Yes, thank you
       next: 1
-      consequence: 4
-    - text: Yes, thank you (chocolate)
-      next: 3
-      consequence: 4
-    consequence: 1
-  - text: Planning some DIW ? I respect that! So, let me sum it up.. it costs 20
+      consequence: 15
+    consequence: 0
+  - text: Planning some DIW ? I respect that! So, let me sum it up.. it costs 30
       moni. By credit card?
     responses:
     - text: Yes
@@ -237,24 +234,38 @@ MonoBehaviour:
       consequence: -1
     consequence: 1
   - text: 'Ohh these are lovely chocolate, that will make someone happy! So, let
-      me sum it up.. it costs 10 moni. By credit card? '
-    responses:
-    - text: Yes
-      next: 2
-      consequence: 0
-    consequence: 1
-  - text: 'Ohh these are lovely chocolate, that will make someone happy! So, let
       me sum it up.. it costs 25 moni. By credit card? '
     responses:
     - text: Yes
       next: 2
       consequence: 0
     consequence: 1
-  - text: Planning some DIW ? I respect that! So, let me sum it up.. it costs 35
+  - text: 'Ohh these are lovely chocolate, that will make someone happy! So, let
+      me sum it up.. it costs 35 moni. By credit card? '
+    responses:
+    - text: Yes
+      next: 2
+      consequence: 0
+    consequence: 1
+  - text: Planning some DIY ? I respect that! So, let me sum it up.. it costs 40
       moni. By credit card?
     responses:
     - text: Yes
       next: 2
       consequence: 0
+    consequence: 1
+  - text: Wow, you really like cheese. So, let me sum it up.. it costs 10 moni. By
+      credit card?
+    responses:
+    - text: Yes
+      next: 2
+      consequence: 0
+    consequence: 1
+  - text: Hmm.. I think you forgot your articles somewhere. It's okay , come back
+      when you'll find them back
+    responses:
+    - text: 
+      next: 0
+      consequence: -1
     consequence: 1
   inDialogue: 0
