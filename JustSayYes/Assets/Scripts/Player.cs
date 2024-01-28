@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     public bool hasMetFrenchGuy = false;
     public bool hasMetSect = false;
 
+
+    public bool hasTicket = false;
     public bool hasBook = false;
     public bool hasBookToPay = false;
 

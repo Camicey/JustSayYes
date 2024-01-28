@@ -146,6 +146,7 @@ public class DialogueSystem : MonoBehaviour
                 break;
              case 14 : // -10 moni for the ticket
                 player.GetComponent<Player>().money -= -10;
+                player.GetComponent<Player>().hasTicket = true ;
                 break;
              case 15 : // cashier payment 
                 if (player.GetComponent<Player>().hasBookToPay == true)
