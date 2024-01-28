@@ -73,18 +73,11 @@ public class CameraDirector : MonoBehaviour
 
         if (timeOfDay >= timeEndOfDay && Maison.activeSelf == true) // Fin Neutre
         {
-            if (player.GetComponent<Player>().hasObject[2] == false)
+            if (player.GetComponent<Player>().hasBook == false || player.GetComponent<Player>().hasTicket == false)
             {
                 SceneManager.LoadScene("FinNeutre");
             }
-            else if (player.GetComponent<Player>().hasObject[3] == false && player.GetComponent<Player>().hasObject[4] == false && player.GetComponent<Player>().hasObject[5] == false)
-            {
-                SceneManager.LoadScene("FinNeutre");
-            }
-            else
-            {
-                SceneManager.LoadScene("FinHappyWife");
-            }
+            else { SceneManager.LoadScene("FinHappyWife"); }
 
         }
     }
