@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &749194828248566666
+--- !u!1 &70735519829418870
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6537994602155764088}
-  - component: {fileID: 5426019666144433755}
-  - component: {fileID: 6815312058914625846}
-  - component: {fileID: 4766313860758597477}
+  - component: {fileID: 4003131507141216640}
+  - component: {fileID: 3035142420314279701}
+  - component: {fileID: 1553687531407301163}
+  - component: {fileID: 2652850607714654202}
   m_Layer: 0
-  m_Name: Lost person
+  m_Name: 'Harry Potter '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6537994602155764088
+--- !u!4 &4003131507141216640
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749194828248566666}
+  m_GameObject: {fileID: 70735519829418870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: -1.25, z: 0}
+  m_LocalPosition: {x: 6.17, y: -2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3009777426314252421}
+  - {fileID: 5862239565409057541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5426019666144433755
+--- !u!212 &3035142420314279701
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749194828248566666}
+  m_GameObject: {fileID: 70735519829418870}
   m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!143 &6815312058914625846
+--- !u!143 &1553687531407301163
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749194828248566666}
+  m_GameObject: {fileID: 70735519829418870}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,48 +113,71 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4766313860758597477
+--- !u!114 &2652850607714654202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749194828248566666}
+  m_GameObject: {fileID: 70735519829418870}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8188331968318f14997046c1dfbe661c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Phoneless girl
+  name: Tom Riddle
   behavior: 0
   walkSpeed: 2.5
   dialogue:
-  - text: "Hi, I\u2019d really need your help. I must make an important phone call,
-      but my phone has no battery anymore. Can I use yours? "
+  - text: 'Hello, I''m kinda lost, I''m looking for platform 9 and 3/4 , do you know
+      where it is? '
     responses:
-    - text: 'Yes, sure ! '
+    - text: Yes, it is the path on the left
       next: 1
       consequence: 0
-    - text: 'Yes, oh wait, actually.. '
+    - text: Yes, it is the path on the right
       next: 2
       consequence: 0
+    - text: 'Yes, it is.. '
+      next: 3
+      consequence: 0
     consequence: 1
-  - text: Thank you very much, you've just saved me. Look, I've just bought new headphones,
-      I can give you my older one!
+  - text: 'No, I already checked the left path, do you have another idea? '
+    responses:
+    - text: Yes, it must the path on the right
+      next: 2
+      consequence: 0
+    - text: 'Yes, it is .. '
+      next: 3
+      consequence: 0
+    consequence: 1
+  - text: 'This is not the right path, do you have another idea? '
+    responses:
+    - text: Yes, it must  the path on the left
+      next: 1
+      consequence: 0
+    - text: 'Yes, it is.. '
+      next: 3
+      consequence: 0
+    consequence: 1
+  - text: The path through the wall!?? Are you insane?!
+    responses:
+    - text: Yes..
+      next: 0
+      consequence: -1
+    - text: Yes, and so are you, it is a magical path, just go for it
+      next: 4
+      consequence: 0
+    consequence: 1
+  - text: 'Oh.. I see, well, I believe you then, thank you '
     responses:
     - text: 
       next: 0
       consequence: -1
     consequence: 7
-  - text: 'Ah you''ve forgotten your phone.. '
-    responses:
-    - text: Yes.. I'm sorry for the false hope
-      next: 0
-      consequence: -1
-    consequence: 2
   inDialogue: 0
   lastTimeTalked: 0
---- !u!1 &8517531698727021930
+--- !u!1 &7535202086877976676
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,8 +185,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3009777426314252421}
-  - component: {fileID: 4097263259784148725}
+  - component: {fileID: 5862239565409057541}
+  - component: {fileID: 4596241483182061859}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -171,28 +194,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3009777426314252421
+--- !u!4 &5862239565409057541
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8517531698727021930}
+  m_GameObject: {fileID: 7535202086877976676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 6537994602155764088}
+  m_Father: {fileID: 4003131507141216640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4097263259784148725
+--- !u!212 &4596241483182061859
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8517531698727021930}
+  m_GameObject: {fileID: 7535202086877976676}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -227,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc76f1e5214c1b543aefa49ac22df239, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ebd286e1028f9e438a0e553167c577f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

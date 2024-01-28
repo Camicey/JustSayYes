@@ -224,13 +224,13 @@ MonoBehaviour:
     - text: "\uC608"
       next: 2
       consequence: 0
-    consequence: 0
+    consequence: 1
   - text: "\uAD1C\uCC2E\uC544\uC694, \uC548\uB155\uD788 \uAC00\uC138\uC694 "
     responses:
     - text: 
       next: 0
       consequence: -1
-    consequence: 0
+    consequence: 1
   - text: "\uBC30\uAC00 \uACE0\uD508\uB370 \uC5B4\uB514\uC11C \uC74C\uC2DD\uC744
       \uC0B4 \uC218 \uC788\uB098\uC694"
     responses:
@@ -252,5 +252,6 @@ MonoBehaviour:
     - text: 
       next: 0
       consequence: -1
-    consequence: 0
+    consequence: 7
   inDialogue: 0
+  lastTimeTalked: 0

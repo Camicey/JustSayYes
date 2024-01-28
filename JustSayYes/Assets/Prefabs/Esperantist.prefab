@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 8832845437665123040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.65, y: -1.14, z: 0}
+  m_LocalPosition: {x: -8.884484, y: -2.6507401, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -224,20 +224,20 @@ MonoBehaviour:
     - text: 'Jes, kompreneble '
       next: 3
       consequence: 0
-    consequence: 0
+    consequence: 12
   - text: Ne gravas, mi trovos rin
     responses:
     - text: 
       next: 0
       consequence: -1
-    consequence: 0
+    consequence: 1
   - text: "Nu.. mi ser\u0109as tre francan personon kiu venis por mi, ri portas francan
       \u0109apon, revenu al mi se vi renkontas rin mi petas. "
     responses:
     - text: 
       next: 0
       consequence: -1
-    consequence: 0
+    consequence: 1
   - text: "Ho vi parolas esperanton? Kiom bona! Mi venis kun la pasporta servo, kaj
       mi ser\u0109as la personon kiu devas bonvengi min, sed mi ne trovis rin jam..
       Mi nur scias ke ri portas francan \u0109apon. Se vi renkontas rin, bonvolu
@@ -246,5 +246,6 @@ MonoBehaviour:
     - text: 
       next: 0
       consequence: -1
-    consequence: 0
+    consequence: 1
   inDialogue: 0
+  lastTimeTalked: 0
