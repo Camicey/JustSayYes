@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
         phoneButton.gameObject.SetActive(hasPhone);
         phoneButton.interactable = (inDialogue && phoneBattery > 0);
         headphonesButton.gameObject.SetActive(hasHeadphones);
-        phoneButton.interactable = (headphonesBattery > 0 && musicDuration > 12f);
+        headphonesButton.interactable = (headphonesBattery > 0 && musicDuration > 12f);
         runButton.gameObject.SetActive(hasRunShoes);
 
         if(phoneButton.interactable && Input.GetButtonDown("Phone"))PhoneCall();
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
             music.volume = Mathf.Lerp(music.volume,0f,0.02f);
         }
 
-        if (canMove)
+        if (canMove && phoneCallDuration >= 1.0f)
         {
             MouseInput();
             Movement();
