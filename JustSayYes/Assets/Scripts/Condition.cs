@@ -16,6 +16,8 @@ public class Condition : MonoBehaviour
     public bool hasPhone = false;
     public bool hasNotPhone = false;
     public bool hasPlayerRun = false;
+    public bool hasBestGift = false;
+    public bool hasTrainTicket = false;
 
     public float timeArrival = 0f;
     public float timeDeparture = 2f;
