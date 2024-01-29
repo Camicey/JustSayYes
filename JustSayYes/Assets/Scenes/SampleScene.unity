@@ -9338,7 +9338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1640242987
 Transform:
   m_ObjectHideFlags: 0
@@ -11872,6 +11872,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9093159374056646495, guid: 97bc0ff39f9ba4b4799408117db229a4, type: 3}
+      propertyPath: name
+      value: Roller Kid
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093159374056646495, guid: 97bc0ff39f9ba4b4799408117db229a4, type: 3}
       propertyPath: dialogue.Array.data[0].responses.Array.data[1].text
       value: Yes, Sorry
       objectReference: {fileID: 0}
@@ -13778,6 +13782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TotallyNotTrump
       objectReference: {fileID: 0}
+    - target: {fileID: 6146261137803427365, guid: f45ce8ba2ea60a74883645b24073cb6b, type: 3}
+      propertyPath: name
+      value: Blond Guy
+      objectReference: {fileID: 0}
     - target: {fileID: 6195865735891499786, guid: f45ce8ba2ea60a74883645b24073cb6b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.253
@@ -14776,11 +14784,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.data[0].text
       value: This is my unpluged phone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[1].text
+      value: This is my unpluged phone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[1].consequence
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.data[0].responses.Array.size
@@ -14788,7 +14804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.data[0].responses.Array.data[0].next
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.data[0].responses.Array.data[0].text
@@ -14803,8 +14819,16 @@ PrefabInstance:
       value: Yes, l
       objectReference: {fileID: 0}
     - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[1].responses.Array.data[0].text
+      value: 'Yes, lets take it '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
       propertyPath: dialogue.Array.data[0].responses.Array.data[0].consequence
-      value: -1
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086210082607412833, guid: 418140c6d46924a4fa89c96ea6ea5e12, type: 3}
+      propertyPath: dialogue.Array.data[1].responses.Array.data[0].consequence
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17526,6 +17550,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasPhone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: moralBar
       value: 
       objectReference: {fileID: 4024940601956143794}
@@ -17534,9 +17562,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4371362038539519299}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasRunShoes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: phoneButton
       value: 
       objectReference: {fileID: 299622412312321807}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: inTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
+      propertyPath: hasHeadphones
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7186728066005180762, guid: 20bec45c5f5837948b196c4aac6b3f68, type: 3}
       propertyPath: headphonesButton
       value: 

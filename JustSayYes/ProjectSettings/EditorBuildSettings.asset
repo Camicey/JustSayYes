@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 8c95fafb107112b40b99cade60e59ed5
   - enabled: 1
     path: Assets/Scenes/FinNeutre.unity
     guid: 3de1f9b7b8ab8aa43ab1612bc28296d1
@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/FinHappyWife.unity
     guid: 06f94ee7b7652a040a0074087987128f
   - enabled: 1
-    path: Assets/Scenes/MenuPrincipal.unity
-    guid: 8c95fafb107112b40b99cade60e59ed5
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

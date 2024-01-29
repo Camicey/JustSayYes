@@ -110,20 +110,20 @@ public class DialogueSystem : MonoBehaviour
             case 5: // get shoes
                 player.GetComponent<Player>().hasRunShoes = true;
                 break;
-            case 6 :// activates "hasfromage" 
-                if (player.GetComponent<Player>().hasFromage==true)
+            case 6:// activates "hasfromage" 
+                if (player.GetComponent<Player>().hasFromage == true)
                 {
-                    chunk=4;
+                    chunk = 4;
                 }
-                else if (player.GetComponent<Player>().moneyToPay+10>player.GetComponent<Player>().money)
+                else if (player.GetComponent<Player>().moneyToPay + 10 > player.GetComponent<Player>().money)
                 {
                     chunk = 3;
                 }
                 else
                 {
-                    player.GetComponent<Player>().moneyToPay+=10;
-                    player.GetComponent<Player>().hasFromage= true; 
-                    player.GetComponent<Player>().hasFromageToPay= true;
+                    player.GetComponent<Player>().moneyToPay += 10;
+                    player.GetComponent<Player>().hasFromage = true;
+                    player.GetComponent<Player>().hasFromageToPay = true;
                 }
                 break;
             case 7: // moral up
@@ -164,7 +164,7 @@ public class DialogueSystem : MonoBehaviour
             case 15: // cashier payment 
                 if (player.GetComponent<Player>().hasBookToPay == true)
                 {
-                    if(player.GetComponent<Player>().hasFromageToPay == false)
+                    if (player.GetComponent<Player>().hasFromageToPay == false)
                     {
                         chunk = 1;
                         player.GetComponent<Player>().money -= 30;
@@ -175,14 +175,14 @@ public class DialogueSystem : MonoBehaviour
                     {
                         chunk = 5;
                         player.GetComponent<Player>().money -= 40;
-                        player.GetComponent<Player>().moneyToPay=0;
-                        player.GetComponent<Player>().hasBookToPay = false; 
+                        player.GetComponent<Player>().moneyToPay = 0;
+                        player.GetComponent<Player>().hasBookToPay = false;
                         player.GetComponent<Player>().hasFromageToPay = false;
                     }
                 }
                 else if (player.GetComponent<Player>().hasChocolateToPay == true)
                 {
-                    if(player.GetComponent<Player>().hasFromageToPay == false)
+                    if (player.GetComponent<Player>().hasFromageToPay == false)
                     {
                         chunk = 3;
                         player.GetComponent<Player>().money -= 25;
@@ -193,8 +193,8 @@ public class DialogueSystem : MonoBehaviour
                     {
                         chunk = 4;
                         player.GetComponent<Player>().money -= 35;
-                        player.GetComponent<Player>().moneyToPay=0;
-                        player.GetComponent<Player>().hasChocolateToPay =false;
+                        player.GetComponent<Player>().moneyToPay = 0;
+                        player.GetComponent<Player>().hasChocolateToPay = false;
                         player.GetComponent<Player>().hasFromageToPay = false;
                     }
                 }
@@ -235,6 +235,9 @@ public class DialogueSystem : MonoBehaviour
                     currentNPC.gameObject.SetActive(false);
                     EndDialogue();
                 }
+                break;
+            case 18:
+                player.GetComponent<Player>().hasPhone = true;
                 break;
 
         }
